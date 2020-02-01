@@ -3,13 +3,11 @@ import pygame
 
 #Pygame initialization
 pygame.init()
-user_width, user_height = pygame.display.Info().current_w, pygame.display.Info().current_h
-width, height = 300, 350
+user_width = pygame.display.Info().current_w
+width, height = user_width//6, width+width//10
 frame = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Tic Tac Toe")
 icon = pygame.image.load("tictactoe.ico")
-frame.fill((0, 0, 5))
-pygame.draw.rect(frame, (192, 192, 192), (0,300, 300, 50))
 
 #Images
 x_standard = pygame.image.load("X_standard.png")
@@ -18,11 +16,16 @@ pygame.display.set_icon(icon)
 
 #Variables and functions
 running = True
-coord = [[i,j] for i in [0, 101, 201] for j in [0, 101, 201]]
+vlinecoord = [[x,y] for x in [width//3, width//3*2] for y in [0, width//3*3]]
+hlinecoord = [[x,y] for x in [0, width//3*3] for y in [width//3, width//3*2]]
 
 def empty_board():
-    for c in coord:
-        pygame.draw.rect(frame, (255, 255, 255), (c[0], c[1], 99, 99))
+    frame.fill((255, 255, 255))
+    pygame.draw.rect(frame, (192, 192, 192), (0, width, width, height - width))
+    pygame.draw.line(frame, (0,0,0), vlinecoord[0], vlinecoord[1])
+    pygame.draw.line(frame, (0,0,0), vlinecoord[2], vlinecoord[3])
+    pygame.draw.line(frame, (0,0,0), hlinecoord[0], hlinecoord[2])
+    pygame.draw.line(frame, (0,0,0), hlinecoord[1], hlinecoord[3])
 empty_board()
 
 #Main Loop
