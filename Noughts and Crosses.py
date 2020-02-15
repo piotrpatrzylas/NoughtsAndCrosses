@@ -89,6 +89,15 @@ class Board(Window):
                 gio = False
         return gio
 
+    def winbox(self, text):
+        self.text = text
+        pygame.font.init()
+        font = pygame.font.SysFont("Arial", 18)
+        message = font.render(self.text, True, (0,0,0), (255,255,255))
+        rectangle = message.get_rect()
+        rectangle.center = (self.width//2), (self.width//2)
+        self.frame.blit(message, rectangle)
+
 class Game():
     CurrentWindow = Window(user_width)
     CurrentBoard = Board()
@@ -131,8 +140,6 @@ class Game():
                     label3 = tkinter.Label(frame, text="License: WTFPL", bg="white", fg="black")
                     label3.pack(side="bottom", fill="both", expand=True)
                     root.mainloop()
-                  #popup.destroy()
-                  #root.protocol("WM_DELETE_WINDOW", quit_callback)
                 if GameIsOn:
                     if turn == "Player" and GameIsOn:
                         for i in FreeRegions:
@@ -146,6 +153,8 @@ class Game():
                                 PlayerRegions.add(i)
                                 FreeRegions.remove(i)
                                 GameIsOn = (CurrentBoard.checkwin(PlayerRegions, AIRegions))
+                                if not GameIsOn:
+                                    CurrentBoard.winbox("You have won the game!")
                                 pygame.time.wait(500)
                                 turn = "AI"
                     if turn == "AI" and GameIsOn:
@@ -161,6 +170,8 @@ class Game():
                         AIRegions.add(AIEasy)
                         FreeRegions.remove(AIEasy)
                         GameIsOn = (CurrentBoard.checkwin(PlayerRegions, AIRegions))
+                        if not GameIsOn:
+                            CurrentBoard.winbox("You have lost the game!")
                         turn = "Player"
         pygame.display.update()
     pygame.quit()
