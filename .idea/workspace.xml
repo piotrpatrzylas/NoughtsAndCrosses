@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bb34465-5ecc-45e9-9d92-6a02f705e1d9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Noughts and Crosses.py" beforeDir="false" afterPath="$PROJECT_DIR$/Noughts and Crosses.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,6 +51,14 @@
       <option name="presentableId" value="Default" />
       <updated>1580590790765</updated>
     </task>
+    <task id="LOCAL-00001" summary="Window, Board updates.">
+      <created>1581779583866</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581779583866</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -64,5 +73,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Window, Board updates." />
+    <option name="LAST_COMMIT_MESSAGE" value="Window, Board updates." />
   </component>
 </project>

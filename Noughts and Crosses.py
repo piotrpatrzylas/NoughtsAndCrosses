@@ -1,6 +1,6 @@
 import pygame
-import tkinter
 import random
+import tkinter
 
 #Initial Setup
 pygame.init()
@@ -64,6 +64,8 @@ class Board(Window):
                         9: [pygame.Rect((self.width // 3)*2, (self.width // 3)*2, self.width // 3, self.width // 3), 1, ""]
                         }
 
+        self.WinCase = set(map(frozenset, [[1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9], [3,5,7]]))
+
     def ClearBoard(self):
         self.frame.fill((255, 255, 255))
         self.newgameButton = Button("newgame", self.frame, self.width)
@@ -86,8 +88,8 @@ class Game():
     Cross = random.choice(["Player", "AI"])
     Nought = str(list({"AI", "Player"} - {Cross})[0])
     turn = Cross
-
-    # Main Loop
+    FreeRegions = []
+    GameIsOn = True
     running = True
     while running:
         for event in pygame.event.get():
@@ -96,10 +98,11 @@ class Game():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mx, my = pygame.mouse.get_pos()
                 print("X: ", mx, "Y: ", my)
-                print(turn)
+                print(CurrentBoard.Regions)
                 if CurrentWindow.newgameButton.rect.collidepoint(mx, my):
                     print("Clicked New Game")
                     CurrentBoard.ClearBoard()
+                    FreeRegions = [x for x in range(1, 10)]
                     Cross = random.choice(["Player", "AI"])
                     Nought = str(list({"AI", "Player"} - {Cross})[0])
                     turn = Cross
@@ -108,18 +111,28 @@ class Game():
                     running = False
                 if CurrentWindow.infoButton.rect.collidepoint(mx, my):
                     print("Clicked Info")
-                if turn == "Player" and Cross == "Player":
-                    for i in range(1, 10):
-                        if CurrentBoard.Regions[i][0].collidepoint(mx, my) and CurrentBoard.Regions[i][1] == 0:
-                            CurrentBoard.InsertX(CurrentBoard.Regions[i][0][0]+1, CurrentBoard.Regions[i][0][0]+1)
-                            CurrentBoard.Regions[i][1] == 1
-
-                if turn == "Player" and Nought == "Player":
-                    for i in range(1, 10):
-                        if CurrentBoard.Regions[i][0].collidepoint(mx, my) and CurrentBoard.Regions[i][1] == 0:
-                            CurrentBoard.InsertO(CurrentBoard.Regions[i][0][0] + 1, CurrentBoard.Regions[i][0][0] + 1)
-                            CurrentBoard.Regions[i][1] == 1
-
+                if turn == "Player":
+                    for i in FreeRegions:
+                        if CurrentBoard.Regions[i][0].collidepoint(mx, my):
+                            if Cross == "Player":
+                                CurrentBoard.InsertX(CurrentBoard.Regions[i][0][0]+1, \
+                                                     CurrentBoard.Regions[i][0][1]+1)
+                            if Nought == "Player":
+                                CurrentBoard.InsertO(CurrentBoard.Regions[i][0][0] + 1, \
+                                                     CurrentBoard.Regions[i][0][1] + 1)
+                            FreeRegions.remove(i)
+                            turn = "AI"
+                if turn == "AI":
+                    if len(FreeRegions) == 0:
+                        break
+                    AIEasy = random.choice(FreeRegions)
+                    if Cross == "AI":
+                        CurrentBoard.InsertX(CurrentBoard.Regions[AIEasy][0][0] + 1, \
+                                             CurrentBoard.Regions[AIEasy][0][1] + 1)
+                    if Nought == "AI":
+                        CurrentBoard.InsertO(CurrentBoard.Regions[AIEasy][0][0] + 1, \
+                                             CurrentBoard.Regions[AIEasy][0][1] + 1)
+                    FreeRegions.remove(AIEasy)
+                    turn = "Player"
         pygame.display.update()
-
     pygame.quit()
