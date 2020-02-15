@@ -1,5 +1,7 @@
 import pygame
 import random
+import tkinter
+
 
 pygame.init()
 user_width = pygame.display.Info().current_w
@@ -116,7 +118,21 @@ class Game():
                 if CurrentWindow.quitButton.rect.collidepoint(mx, my):
                     running = False
                 if CurrentWindow.infoButton.rect.collidepoint(mx, my):
-                    pass
+                    root = tkinter.Tk()
+                    root.title("About...")
+                    canvas = tkinter.Canvas(root, height=100, width=220)
+                    canvas.pack()
+                    frame = tkinter.Frame(canvas, bg = "white")
+                    frame.place(relwidth = 1, relheight = 1)
+                    label1 = tkinter.Label(frame, text = "Noughts and Crosses", bg = "white", fg = "black")
+                    label1.pack(side = "top", fill = "both", expand = True)
+                    label2 = tkinter.Label(frame, text="Copyright (C) Piotr Patrzylas 2020", bg="white", fg="black")
+                    label2.pack(side="top", fill="both", expand=True)
+                    label3 = tkinter.Label(frame, text="License: WTFPL", bg="white", fg="black")
+                    label3.pack(side="bottom", fill="both", expand=True)
+                    root.mainloop()
+                  #popup.destroy()
+                  #root.protocol("WM_DELETE_WINDOW", quit_callback)
                 if GameIsOn:
                     if turn == "Player" and GameIsOn:
                         for i in FreeRegions:

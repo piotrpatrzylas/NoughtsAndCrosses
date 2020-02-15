@@ -4,23 +4,29 @@
     <list default="true" id="7bb34465-5ecc-45e9-9d92-6a02f705e1d9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Noughts and Crosses.py" beforeDir="false" afterPath="$PROJECT_DIR$/Noughts and Crosses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noughts and Crosses.spec" beforeDir="false" afterPath="$PROJECT_DIR$/Noughts and Crosses.spec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Noughts and Crosses/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/Noughts and Crosses/Analysis-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Noughts and Crosses/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/Noughts and Crosses/EXE-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Noughts and Crosses/PKG-00.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/Noughts and Crosses/PKG-00.pkg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Noughts and Crosses/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/Noughts and Crosses/PKG-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Noughts and Crosses/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/build/Noughts and Crosses/PYZ-00.pyz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Noughts and Crosses/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/Noughts and Crosses/PYZ-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/Noughts and Crosses/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/Noughts and Crosses/base_library.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Noughts and Crosses/warn-Noughts and Crosses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/Noughts and Crosses/warn-Noughts and Crosses.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Noughts and Crosses/xref-Noughts and Crosses.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/Noughts and Crosses/xref-Noughts and Crosses.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/Noughts and Crosses" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Noughts and Crosses" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output-onlinepngtools.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
