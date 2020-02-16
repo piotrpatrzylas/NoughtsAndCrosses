@@ -124,6 +124,7 @@ class Game():
                     GameIsOn = True
                     PlayerRegions = set()
                     AIRegions = set()
+                    info = False
                 if CurrentWindow.quitButton.rect.collidepoint(mx, my):
                     running = False
                 if CurrentWindow.infoButton.rect.collidepoint(mx, my):
@@ -155,6 +156,9 @@ class Game():
                                 GameIsOn = (CurrentBoard.checkwin(PlayerRegions, AIRegions))
                                 if not GameIsOn:
                                     CurrentBoard.winbox("You have won the game!")
+                                    info = True
+                                if len(FreeRegions) == 0 and not info:
+                                    CurrentBoard.winbox("The game ended in a draw!")
                                 pygame.time.wait(500)
                                 turn = "AI"
                     if turn == "AI" and GameIsOn:
@@ -172,6 +176,9 @@ class Game():
                         GameIsOn = (CurrentBoard.checkwin(PlayerRegions, AIRegions))
                         if not GameIsOn:
                             CurrentBoard.winbox("You have lost the game!")
+                            info = True
+                        if len(FreeRegions) == 0 and not info:
+                            CurrentBoard.winbox("The game ended in a draw!")
                         turn = "Player"
         pygame.display.update()
     pygame.quit()
